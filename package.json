@@ -1,0 +1,34 @@
+{
+  "name": "pleo-dashboard",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/odGit/pleo-dashboard.git"
+  },
+  "author": "Olga Dmitricenko",
+  "license": "AGPL-3.0-only",
+  "standard": {
+    "ignore": [
+      "dist/*",
+      "pleo-code"
+    ]
+  },
+  "scripts": {
+    "init:start": "cd ./pleo-code/api && npm i && cd ../.. && yarn && yarn run start:api",
+    "start:api": "cross-env PORT=5000 nodemon ./pleo-code/api/app.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "concurrently": "^5.1.0",
+    "nodemon": "^2.0.2",
+    "standard": "^14.3.1",
+    "ts-node": "^8.6.2",
+    "typescript": "^3.7.5"
+  },
+  "dependencies": {
+    "cross-env": "^7.0.0"
+  }
+}
