@@ -6,6 +6,7 @@ import * as logger from 'morgan'
 
 import expensesRouter from './routes/expenses'
 
+const PORT = 5000
 const app = express()
 
 app.use(function(req, res, next) {
@@ -42,5 +43,5 @@ app.use(function(err, req, res, next) {
   })
 })
 
-app.listen(3000)
-console.log('API running at http://localhost:3000')
+app.listen(PORT)
+console.log('API running at http://localhost:', PORT)
