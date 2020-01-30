@@ -17,18 +17,18 @@
     ]
   },
   "scripts": {
-    "init:start": "cd ./pleo-code/api && npm i && cd ../.. && yarn && yarn run start:api",
-    "start:api": "cd ./pleo-code/api && ts-node ./app",
+    "clean:all": "rm -rf ./node_modules ./pleo_code/api/node_modules ./client/node_modules",
+    "init": "cd ./pleo-code/api && npm i && cd ../../client && yarn && cd ../ && yarn && yarn start",
+    "lint": "./node_modules/.bin/standard",
+    "lint-fix": "./node_modules/.bin/standard --fix",
+    "start": "concurrently --kill-others-on-fail \"npm run start:api\" \"npm run start:client\"",
+    "start:api": "cd ./pleo-code/api && npm start",
+    "start:client": "cd ./client && yarn start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
     "concurrently": "^5.1.0",
-    "nodemon": "^2.0.2",
-    "standard": "^14.3.1",
-    "ts-node": "^8.6.2",
-    "typescript": "^3.7.5"
+    "standard": "^14.3.1"
   },
-  "dependencies": {
-    "cross-env": "^7.0.0"
-  }
+  "dependencies": {}
 }
