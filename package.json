@@ -18,7 +18,7 @@
   },
   "scripts": {
     "init:start": "cd ./pleo-code/api && npm i && cd ../.. && yarn && yarn run start:api",
-    "start:api": "cross-env PORT=5000 nodemon ./pleo-code/api/app.ts",
+    "start:api": "cd ./pleo-code/api && ts-node ./app",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
