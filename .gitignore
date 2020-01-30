@@ -1,3 +1,14 @@
+# IDE
+.vscode/*
+
+# File types
+*.DS_Store
+*.tgz
+.#*
+
+# Build artifacts
+dist/
+
 # Logs
 logs
 *.log
