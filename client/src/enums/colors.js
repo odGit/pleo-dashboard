@@ -1,5 +1,7 @@
 export const COLORS = {
-  DEBUG: 'FF00FF',
+  DEBUG: '#FF00FF',
   GRASS: '#3CB84D',
-  ORANGE: '#faae03'
+  ORANGE: '#FAAE03',
+  LIGHTGREY: '#719ECE',
+  DARKGREY: '#777777',
 }

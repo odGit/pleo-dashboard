@@ -27,6 +27,13 @@ export default function reducer (state, action) {
         awaitingData: true
       }
     }
+    case 'POST_NEW_COMMENT': {
+      // TODO: needs to update LOCAL STATE AND DB
+      return {
+        ...state,
+
+      }
+    }
     default: {
       return state
     }
