@@ -3,9 +3,10 @@ import PropTypes from 'prop-types'
 import Radium from 'radium'
 
 import Amount from './card/Amount'
-import TimeStamp from './card/Timestamp'
 import Label from './atoms/Label'
 import IconLabel from './atoms/IconLabel'
+import TimeStamp from './card/Timestamp'
+import Comment from './card/Comment'
 
 import { COLORS } from '../enums/colors'
 import { ICONS } from '../enums/icon-svgs'
@@ -33,7 +34,7 @@ const cardStyles = {
 const Card = ({
   expense
 }) => {
-  const { id, amount, merchant, user, date } = expense
+  const { id, amount, merchant, user, date, comment } = expense
   return (
     <div key={id} className='expense-card' style={cardStyles.card}>
       <Label
@@ -48,6 +49,10 @@ const Card = ({
       />
       <TimeStamp
         date={date}
+      />
+      <Comment
+        comment={comment}
+        itemId={id}
       />
       <Amount
         amount={amount.value}
