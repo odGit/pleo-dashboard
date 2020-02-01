@@ -1,3 +1,6 @@
 export const initialState = {
-  receiptsList: []
+  receiptsList: [],
+  data: undefined,
+  limit: 15,
+  offsetSize: 0
 }
