@@ -4,7 +4,10 @@ import Radium from 'radium'
 
 import Amount from './card/Amount'
 import Label from './atoms/Label'
+import IconLabel from './atoms/IconLabel'
+
 import { COLORS } from '../enums/colors'
+import { ICONS } from '../enums/icon-svgs'
 
 const cardStyles = {
   card: {
@@ -29,13 +32,18 @@ const cardStyles = {
 const Card = ({
   expense
 }) => {
-  const { id, amount, merchant } = expense
+  const { id, amount, merchant, user } = expense
   return (
     <div key={id} className='expense-card' style={cardStyles.card}>
       <Label
         classes='card-merchant'
         label={merchant}
         styles={cardStyles.merchant}
+      />
+      <IconLabel
+        classes='card-user-name'
+        label={`${user.last} ${user.first}`}
+        icon={ICONS.USER}
       />
       <Amount
         amount={amount.value}
