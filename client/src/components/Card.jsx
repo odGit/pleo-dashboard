@@ -3,32 +3,19 @@ import PropTypes from 'prop-types'
 import Radium from 'radium'
 
 import Amount from './card/Amount'
-import Label from './atoms/Label'
-import IconLabel from './atoms/IconLabel'
+import Merchant from './card/Merchant'
+import User from './card/User'
 import TimeStamp from './card/Timestamp'
 import Comment from './card/Comment'
 
 import { COLORS } from '../enums/colors'
-import { ICONS } from '../enums/icon-svgs'
 
 const cardStyles = {
-  card: {
-    width: '210px',
-    borderStyle: 'solid',
-    borderWidth: '1px',
-    borderColor: COLORS.GRASS,
-    padding: '10px'
-  },
-  merchant: {
-    width: '210px',
-    color: 'white',
-    fontSize: '1.5em',
-    lineHeight: '2em',
-    textAlign: 'center',
-    backgroundColor: COLORS.ORANGE,
-    borderRadius: '60px 5px',
-    fontFamily: 'monospace'
-  }
+  width: '210px',
+  borderStyle: 'solid',
+  borderWidth: '1px',
+  borderColor: COLORS.GRASS,
+  padding: '10px'
 }
 
 const Card = ({
@@ -36,20 +23,10 @@ const Card = ({
 }) => {
   const { id, amount, merchant, user, date, comment } = expense
   return (
-    <div key={id} className='expense-card' style={cardStyles.card}>
-      <Label
-        classes='card-merchant'
-        label={merchant}
-        styles={cardStyles.merchant}
-      />
-      <IconLabel
-        classes='card-user-name'
-        label={`${user.last} ${user.first}`}
-        icon={ICONS.USER}
-      />
-      <TimeStamp
-        date={date}
-      />
+    <div key={id} className='expense-card' style={cardStyles}>
+      <Merchant name={merchant} />
+      <User name={user} />
+      <TimeStamp date={date} />
       <Comment
         comment={comment}
         itemId={id}
