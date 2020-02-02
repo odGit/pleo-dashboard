@@ -9,8 +9,7 @@ const IconLabelStyles = {
   base: {
     float: 'left',
     lineHeight: '2em',
-    paddingLeft: '1em',
-    // width: '90%'
+    paddingLeft: '1em'
   },
   textBlock: {
     paddingLeft: '0.1em',
@@ -20,24 +19,21 @@ const IconLabelStyles = {
   }
 }
 
-const IconLabel = ({
-  classes,
-  icon,
-  label,
-  styles
-}) => (
-  <div className={classes} style={styles || IconLabelStyles.base}>
-    <Icon icon={icon} noStyles size={ICONSIZES.LABEL} />
-    <span className={`${classes}-icon`} style={styles || IconLabelStyles.textBlock}>
-      {label}
-    </span>
-  </div>
-)
+function IconLabel ({ classes, icon, label, styles }) {
+  return (
+    <div className={classes} style={styles || IconLabelStyles.base}>
+      <Icon icon={icon} noStyles size={ICONSIZES.LABEL} />
+      <span className={`${classes}-icon`} style={styles || IconLabelStyles.textBlock}>
+        {label}
+      </span>
+    </div>
+  )
+}
 
 IconLabel.propTypes = {
-  label: PropTypes.string.isRequired,
-  icon: PropTypes.string.isRequired,
   classes: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
+  icon: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
   styles: PropTypes.oneOfType([PropTypes.object, PropTypes.array])
 }
 

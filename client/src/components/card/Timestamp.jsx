@@ -5,7 +5,7 @@ import IconLabel from '../atoms/IconLabel'
 import { DATEOPTIIONS } from '../../enums/date-options'
 import { ICONS } from '../../enums/icon-svgs'
 
-const TimeStamp = ({ date }) => {
+function TimeStamp ({ date }) {
   const dateFormated = new Date(date).toLocaleDateString('en-gb', DATEOPTIIONS)
   const [ddMyyyy, hhMM] = dateFormated.split(',')
 
@@ -26,7 +26,7 @@ const TimeStamp = ({ date }) => {
 }
 
 TimeStamp.propTypes = {
-  date: PropTypes.string
+  date: PropTypes.string.isRequired
 }
 
 TimeStamp.dafaultProps = {

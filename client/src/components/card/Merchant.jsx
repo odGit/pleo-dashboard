@@ -16,13 +16,15 @@ const merchantStyles = {
   width: '210px'
 }
 
-const Merchant = ({ name }) => (
-  <Label
-    classes='card-merchant'
-    label={name}
-    styles={merchantStyles}
-  />
-)
+function Merchant ({ name }) {
+  return (
+    <Label
+      classes='card-merchant'
+      label={name}
+      styles={merchantStyles}
+    />
+  )
+}
 
 Merchant.propTypes = {
   name: PropTypes.string.isRequired

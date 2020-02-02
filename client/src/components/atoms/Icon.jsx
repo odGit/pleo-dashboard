@@ -5,12 +5,7 @@ import Radium from 'radium'
 import { COLORS } from '../../enums/colors'
 import { ICONSIZES } from '../../enums/icon-sizes'
 
-const Icon = ({
-  icon,
-  color,
-  size,
-  noStyles
-}) => {
+function Icon ({ icon, color, size, noStyles }) {
   const iconStyling = {
     display: 'inline-block',
     verticalAlign: 'middle',

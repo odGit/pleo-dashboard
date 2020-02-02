@@ -9,28 +9,26 @@ const labelStyles = {
   flex: 1
 }
 
-const Label = ({
-  classes,
-  label,
-  styles
-}) => (
-  <div
-    className={classes}
-    style={styles ? { ...labelStyles, ...styles } : labelStyles}
-  >
-    {label}
-  </div>
-)
+function Label ({ classes, label, styles }) {
+  return (
+    <div
+      className={classes}
+      style={styles ? { ...labelStyles, ...styles } : labelStyles}
+    >
+      {label}
+    </div>
+  )
+}
 
 Label.propTypes = {
   classes: PropTypes.string,
-  styles: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
-  label: PropTypes.string.isRequired
+  label: PropTypes.string.isRequired,
+  styles: PropTypes.oneOfType([PropTypes.object, PropTypes.array])
 }
 
 Label.defaultProps = {
-  styles: null,
-  classes: ''
+  classes: '',
+  styles: null
 }
 
 export default Radium(Label)

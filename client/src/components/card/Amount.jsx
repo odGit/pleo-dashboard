@@ -25,10 +25,7 @@ const amountStyles = {
   }
 }
 
-const Amount = ({
-  amount,
-  currency
-}) => {
+function Amount ({ amount, currency }) {
   const applySign = Object.prototype.hasOwnProperty.call(CURRENCIES, currency) ? (
     `${amount} ${CURRENCIES[currency].symbol}`
   ) : (
@@ -53,13 +50,8 @@ const Amount = ({
 }
 
 Amount.propsTypes = {
-  ampunt: PropTypes.string,
-  currency: PropTypes.string
-}
-
-Amount.defaultProps = {
-  amount: 'VALUE_STRING',
-  currency: 'CURRENCY_STRING'
+  amount: PropTypes.string.isRequired,
+  currency: PropTypes.string.isRequired
 }
 
 export default Radium(Amount)
