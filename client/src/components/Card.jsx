@@ -7,7 +7,7 @@ import Merchant from './card/Merchant'
 import User from './card/User'
 import TimeStamp from './card/Timestamp'
 import Comment from './card/Comment'
-import Receipt from './card/Receipt'
+import ReceiptPreview from './card/ReceiptPreview'
 
 import { COLORS } from '../enums/colors'
 
@@ -34,7 +34,7 @@ function Card ({ expense }) {
         amount={amount.value}
         currency={amount.currency}
       />
-      <Receipt
+      <ReceiptPreview
         id={id}
         receipts={receipts}
       />

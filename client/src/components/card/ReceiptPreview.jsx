@@ -6,8 +6,9 @@ import IconButton from '../atoms/IconButton'
 import { useAppContext } from '../../Context'
 import { COLORS } from '../../enums/colors'
 import { ICONS } from '../../enums/icon-svgs'
+import { openModal } from '../../ducks/actions'
 
-const receiptStyles = {
+const previewStyles = {
   button: {
     borderColor: COLORS.GRASS,
     borderRadius: '5px',
@@ -22,13 +23,13 @@ const receiptStyles = {
   }
 }
 
-function Receipt ({ id, receipts }) {
+function ReceiptPreview ({ id, receipts }) {
   const [, dispatch] = useAppContext()
-  const noReceipts = (receipts.length !== 0)
+  const noReceipts = (receipts.length === 0)
   const styling = noReceipts ? (
-    { button: { ...receiptStyles.button, ...{ color: COLORS.ORANGE } } }
+    { button: { ...previewStyles.button, ...{ color: COLORS.ORANGE } } }
   ) : (
-    receiptStyles
+    previewStyles
   )
 
   return (
@@ -36,14 +37,14 @@ function Receipt ({ id, receipts }) {
       icon={noReceipts ? ICONS.ADD : ICONS.FILE}
       styles={styling}
       disabled={false}
-      onClick={() => dispatch({ type: 'OPEN_MODAL', id: id, modalType: 'SHOW' })}
+      onClick={() => dispatch(openModal(id, !noReceipts))}
     />
   )
 }
 
-Receipt.protoTypes = {
+ReceiptPreview.protoTypes = {
   id: PropTypes.string.isRequired,
   receipts: PropTypes.array
 }
 
-export default Radium(Receipt)
+export default Radium(ReceiptPreview)
