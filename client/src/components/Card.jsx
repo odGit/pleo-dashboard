@@ -7,6 +7,7 @@ import Merchant from './card/Merchant'
 import User from './card/User'
 import TimeStamp from './card/Timestamp'
 import Comment from './card/Comment'
+import Receipt from './card/Receipt'
 
 import { COLORS } from '../enums/colors'
 
@@ -18,10 +19,8 @@ const cardStyles = {
   padding: '10px'
 }
 
-const Card = ({
-  expense
-}) => {
-  const { id, amount, merchant, user, date, comment } = expense
+function Card ({ expense }) {
+  const { id, amount, merchant, user, date, comment, receipts } = expense
   return (
     <div key={id} className='expense-card' style={cardStyles}>
       <Merchant name={merchant} />
@@ -34,6 +33,10 @@ const Card = ({
       <Amount
         amount={amount.value}
         currency={amount.currency}
+      />
+      <Receipt
+        id={id}
+        receipts={receipts}
       />
     </div>
   )
