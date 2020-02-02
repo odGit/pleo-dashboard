@@ -24,7 +24,7 @@ const commentStyles = {
     }
   },
   charCount: {
-    color: COLORS.LIGHTGREY,
+    color: COLORS.GREY,
     fontFamily: 'monospace',
     fontSize: '0.8em',
     textAlign: 'right',

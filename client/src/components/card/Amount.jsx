@@ -7,11 +7,12 @@ import { CURRENCIES } from '../../enums/currencies'
 const amountStyles = {
   general: {
     textAlign: 'left',
-    padding: '10px 5 px 0 10px',
+    padding: '2% 5%',
     float: 'left',
+    height: '2em',
     display: 'flex',
     flexDirection: 'column',
-    justify: 'center'
+    justifyContent: 'center'
   },
   amount: {
     fontSize: '1.1em',

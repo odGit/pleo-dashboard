@@ -10,7 +10,7 @@ const IconLabelStyles = {
     float: 'left',
     lineHeight: '2em',
     paddingLeft: '1em',
-    width: '90%'
+    // width: '90%'
   },
   textBlock: {
     paddingLeft: '0.1em',

@@ -1,4 +1,6 @@
 import React from 'react'
+import Radium, { StyleRoot } from 'radium'
+
 import { useAppContext } from '../Context'
 import Collection from './Collection'
 import { useGetItems } from '../utils/useGetItems'
@@ -9,10 +11,12 @@ function App () {
   useGetItems(limit, offsetSize, dispatch)
 
   return (
-    <div className='App'>
-      {data && <Collection />}
-    </div>
+    <StyleRoot>
+      <div className='App'>
+        {data && <Collection />}
+      </div>
+    </StyleRoot>
   )
 }
 
-export default App
+export default Radium(App)

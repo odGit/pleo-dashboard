@@ -26,7 +26,7 @@ const cardStyles = {
     lineHeight: '2em',
     textAlign: 'center',
     backgroundColor: COLORS.ORANGE,
-    borderRadius: '60px, 5px',
+    borderRadius: '60px 5px',
     fontFamily: 'monospace'
   }
 }
