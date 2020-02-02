@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import Radium from 'radium'
 
 import { useAppContext } from '../../Context'
+import { postComment } from '../../utils/postComment'
 import { COLORS } from '../../enums/colors'
 
 const commentStyles = {
@@ -49,11 +50,7 @@ function Comment ({ comment, itemId }) {
 
   useEffect(() => {
     if (localComment !== comment) {
-      dispatch({
-        type: 'POST_NEW_COMMENT',
-        comment: localComment,
-        id: itemId
-      })
+      postComment(localComment, itemId, dispatch)
     }
   }, [isBlurry])
 

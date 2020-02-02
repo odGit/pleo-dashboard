@@ -1,37 +1,45 @@
+import { RECEIPT, COMMENT } from './actionTypes'
+
 export default function reducer (state, action) {
   console.log('REDUCER', action)
   switch (action.type) {
-    case 'GOT_ITEMS': {
-      console.log('REDUCER GOT ITEMS', action.payload)
+    case RECEIPT.GOT_RECEIPTS_SUCESS: {
       return {
         ...state,
         data: action.payload.expenses,
         total: action.payload.total
       }
     }
-    case 'GOT_NO_ITEMS': {
+    case RECEIPT.GOT_NO_ITEMS: {
       return {
         ...state,
         data: action.payload
       }
     }
-    case 'FAIL_TO_GET': {
+    case RECEIPT.GET_FAIL: {
       return {
         ...state,
         errorMessage: action.payload.message
       }
     }
-    case 'START_REQUEST': {
+    case RECEIPT.GET_RECEIPTS_START_REQUEST: {
       return {
         ...state,
         awaitingData: true
       }
     }
-    case 'POST_NEW_COMMENT': {
-      // TODO: needs to update LOCAL STATE AND DB
+    case COMMENT.POST_COMMENT_START_REQUEST: {
       return {
         ...state,
-
+        postingComment: { ...state.postingComment, ...action.payload }
+      }
+    }
+    case COMMENT.POSTED_COMMENT_SUCCESS: {
+      const index = state.data.findIndex(x => x.id === action.payload.id)
+      const updatedData = [...state.data.slice(0, index), action.payload, ...state.data.slice(index + 1)]
+      return {
+        ...state,
+        data: updatedData
       }
     }
     default: {
