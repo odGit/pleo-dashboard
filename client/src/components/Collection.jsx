@@ -1,7 +1,6 @@
 import React from 'react'
 import Radium from 'radium'
 
-import { useAppContext } from '../Context'
 import Card from './Card'
 
 const collectionStyle = {
@@ -12,10 +11,7 @@ const collectionStyle = {
   alignItems: 'center'
 }
 
-const Collection = () => {
-  const [state] = useAppContext()
-  const expenses = state.data
-
+const Collection = ({ expenses }) => {
   return (
     <div className='collection' style={collectionStyle}>
       {

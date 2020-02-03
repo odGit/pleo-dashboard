@@ -15,7 +15,7 @@ function App () {
     <StyleRoot>
       <div className='App'>
         {showModal && <ReceiptModal />}
-        {data && <Collection />}
+        {data && <Collection expenses={data} />}
       </div>
     </StyleRoot>
   )
