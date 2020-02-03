@@ -8,24 +8,19 @@ import Button from './Button'
 import { COLORS } from '../../enums/colors'
 
 const componentStyles = {
-  button: {
-    flexGrow: 1,
-    dispaly: 'flex',
-    color: COLORS.GRASS,
-    flexDirection: 'column',
-    justifyContnet: 'flex-start',
-    margin: '0 0.7em 0 0'
-  },
-  icon: {
-    flex: 1
-  }
+  flexGrow: 1,
+  dispaly: 'flex',
+  color: COLORS.GRASS,
+  flexDirection: 'column',
+  justifyContnet: 'flex-start',
+  margin: '0 0.7em 0 0'
 }
 
 function IconButton ({ icon, onClick, size, styles, disabled }) {
   return (
     <Button
       onClick={onClick}
-      styles={styles ? { ...componentStyles.button, ...styles.button } : componentStyles}
+      styles={styles ? { ...componentStyles, ...styles } : componentStyles}
       disabled={disabled}
     >
       <Icon

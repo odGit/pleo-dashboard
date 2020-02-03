@@ -9,25 +9,23 @@ import { ICONS } from '../../enums/icon-svgs'
 import { openModal } from '../../ducks/actions'
 
 const previewStyles = {
-  button: {
-    borderColor: COLORS.GRASS,
-    borderRadius: '5px',
-    borderStyle: 'colid',
-    borderWidth: '1px',
-    flexDirection: 'row',
-    float: 'right',
-    height: '35px',
-    justifyContent: 'center',
-    margin: '2% 0 0 0',
-    width: '100px'
-  }
+  borderColor: COLORS.GRASS,
+  borderRadius: '5px',
+  borderStyle: 'colid',
+  borderWidth: '1px',
+  flexDirection: 'row',
+  float: 'right',
+  height: '35px',
+  justifyContent: 'center',
+  margin: '2% 0 0 0',
+  width: '100px'
 }
 
 function ReceiptPreview ({ id, receipts }) {
   const [, dispatch] = useAppContext()
   const noReceipts = (receipts.length === 0)
   const styling = noReceipts ? (
-    { button: { ...previewStyles.button, ...{ color: COLORS.ORANGE } } }
+    { ...previewStyles, ...{ color: COLORS.ORANGE } }
   ) : (
     previewStyles
   )
