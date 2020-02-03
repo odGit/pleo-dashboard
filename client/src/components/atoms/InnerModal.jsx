@@ -1,10 +1,11 @@
 import React from 'react'
 import Radium from 'radium'
 
-import Button from './Button'
+import IconButton from './IconButton'
 import { useAppContext } from '../../Context'
 import { COLORS } from '../../enums/colors'
 import { closeModal } from '../../ducks/actions'
+import { ICONS } from '../../enums/icon-svgs'
 
 const modalStyles = {
   modal: {
@@ -21,24 +22,24 @@ const modalStyles = {
   },
   inner: {
     minWidth: '240px',
+    width: '60%',
+    height: '60%',
     background: 'white',
-    h2: {
-      borderWidth: '1px',
-      borderStyle: 'solid',
-      borderColor: COLORS.DARKGREY,
-      padding: '1rem',
-      margin: '0'
-    }
+    // h2: {
+    //   borderWidth: '1px',
+    //   borderStyle: 'solid',
+    //   borderColor: COLORS.DARKGREY,
+    //   padding: '1rem',
+    //   margin: '0'
+    // }
   },
   closeButton: {
     float: 'right',
-    padding: '0.4em',
-    borderWidth: '1px',
-    borderStyle: 'solid',
-    borderColor: COLORS.DARKGREY,
-    borderRadius: '5px',
-    fontSize: '0.8rem',
-    lineHeight: 1
+    margin: 0,
+    backgroundColor: 'white',
+    padding: 0,
+    borderWidth: 0,
+    color: COLORS.GREYBLUE
   },
   errorMessage: {
     color: COLORS.ERROR,
@@ -52,12 +53,11 @@ function InnerModal ({ type, children }) {
   return (
     <div className='modal' style={modalStyles.modal}>
       <div className='inner-modal' style={modalStyles.inner}>
-        <Button
+        <IconButton
           styles={modalStyles.closeButton}
           onClick={(e) => dispatch(closeModal())}
-        >
-          X
-        </Button>
+          icon={ICONS.CLOSE}
+        />
         <section className='modal-main'>
           {errorMessage && <div style={modalStyles.errorMessage} className='errorMessage'>{errorMessage}</div>}
           {children}

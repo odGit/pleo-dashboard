@@ -1,4 +1,4 @@
-import { RECEIPT, COMMENT, MODAL } from './actionTypes'
+import { RECEIPT, COMMENT, MODAL, POST_RECEIPT } from './actionTypes'
 
 export const gotItems = (payload) => ({
   type: RECEIPT.GOT_RECEIPTS_SUCESS,
@@ -29,7 +29,7 @@ export const addCommentReq = (id, text) => ({
 
 export const addedComment = (payload) => ({
   type: COMMENT.POSTED_COMMENT_SUCCESS,
-  payload
+  payload: payload
 })
 
 export const addCommentFail = (error, itemId, text) => ({
@@ -41,10 +41,27 @@ export const addCommentFail = (error, itemId, text) => ({
 
 export const openModal = (id, hasReceipts) => ({
   type: MODAL.OPEN,
-  id,
-  hasReceipts
+  id: id,
+  hasReceipts: hasReceipts
 })
 
 export const closeModal = () => ({
   type: MODAL.CLOSE
+})
+
+export const addReceiptReq = (id) => ({
+  type: POST_RECEIPT.START_REQUEST,
+  id: id
+})
+
+export const addedReceipt = (payload) => ({
+  type: POST_RECEIPT.SUCCESS,
+  payload: payload
+})
+
+export const addReceiptFail = (error, itemId, img) => ({
+  type: POST_RECEIPT.FAIL,
+  error: error,
+  id: itemId,
+  payload: img
 })

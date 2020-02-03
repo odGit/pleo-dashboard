@@ -1,10 +1,11 @@
 import React from 'react'
 import InnerModal from './atoms/InnerModal'
+import UploadReceipt from './receiptModal/UploadReceipt'
 
-function ReceiptModal ({}) {
+function ReceiptModal () {
   return (
     <InnerModal>
-      {<p>'ALOHA11'</p>}
+      <UploadReceipt />
     </InnerModal>
   )
 }
