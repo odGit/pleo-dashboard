@@ -8,20 +8,35 @@ import Button from './Button'
 import { COLORS } from '../../enums/colors'
 
 const componentStyles = {
-  flexGrow: 1,
+  backgroundColor: '#FFF',
+  borderColor: COLORS.GRASS,
+  borderRadius: '5px',
+  borderStyle: 'solid',
+  borderWidth: '1px',
+  color: COLORS.ORANGE,
   dispaly: 'flex',
-  color: COLORS.GRASS,
   flexDirection: 'column',
+  flexGrow: 1,
   justifyContnet: 'flex-start',
-  margin: '0 0.7em 0 0'
+  margin: '0 0.7em 0 0',
+  ':hover': {
+    backgroundColor: COLORS.TRANSPARENT,
+    cursor: 'pointer',
+  },
+  ':disabled': {
+    backgroundColor: COLORS.TRANSPARENT,
+    borderColor: '#FFF',
+    color: COLORS.GRASS
+  }
 }
 
-function IconButton ({ icon, onClick, size, styles, disabled }) {
+function IconButton ({ icon, onClick, size, styles, disabled, type }) {
   return (
     <Button
       onClick={onClick}
       styles={styles ? { ...componentStyles, ...styles } : componentStyles}
       disabled={disabled}
+      type={type}
     >
       <Icon
         noStyles
