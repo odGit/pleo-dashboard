@@ -1,9 +1,8 @@
-import React, { useState, useCallback, useEffect } from 'react'
+import React, { useState, useCallback } from 'react'
 import PropTypes from 'prop-types'
 import Radium from 'radium'
 
-import { useAppContext } from '../../Context'
-import { postComment } from '../../utils/postComment'
+import { usePostComment } from '../../utils/usePostComment'
 import { COLORS } from '../../enums/colors'
 
 const commentStyles = {
@@ -36,8 +35,6 @@ const commentStyles = {
 function Comment ({ comment, itemId }) {
   const [localComment, addComment] = useState(comment)
   const [isBlurry, setBlurry] = useState(false)
-  // const [reupload, setReupload] = useState(false)
-  const [, dispatch] = useAppContext()
 
   const handleBlur = useCallback((event) => {
     const currentTarget = event.currentTarget
@@ -48,11 +45,7 @@ function Comment ({ comment, itemId }) {
     }, 0)
   }, [])
 
-  useEffect(() => {
-    if (localComment !== comment) {
-      postComment(localComment, itemId, dispatch)
-    }
-  }, [isBlurry])
+  usePostComment(isBlurry, localComment, comment, itemId)
 
   return (
     <div>
