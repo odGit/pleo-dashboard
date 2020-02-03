@@ -1,8 +1,8 @@
-import { gotItems, gotNoItems, startReq, failGet } from '../ducks/actions'
+import { gotItems, gotNoItems, getItemsReq, getItemsFail } from '../ducks/actions'
 
 export async function fetchData (limit, offsetSize, dispatch, fetchParams = {}) {
   const url = `/expenses?limit=${limit}&offset=${offsetSize}`
-  dispatch(startReq())
+  dispatch(getItemsReq())
   try {
     const request = await fetch(url, fetchParams)
     if (!request.ok) {
@@ -18,6 +18,6 @@ export async function fetchData (limit, offsetSize, dispatch, fetchParams = {}) 
       dispatch(gotNoItems({ status: request.statusText, expenses: [] }))
     }
   } catch (err) {
-    dispatch(failGet(err))
+    dispatch(getItemsFail(err))
   }
 }

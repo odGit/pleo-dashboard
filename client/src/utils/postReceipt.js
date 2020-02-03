@@ -1,11 +1,11 @@
-import { addReceiptReq, addReceiptFail, addedReceipt } from '../ducks/actions'
+import { addReceiptReq, addReceiptFail, addedReceipt, closeModal } from '../ducks/actions'
 
 export async function postReceipt (img, itemId, dispatch) {
   const url = `/expenses/${itemId}/receipts`
   const data = new FormData()
   data.append('receipt', img)
 
-  dispatch(addReceiptReq(itemId))
+  dispatch(addReceiptReq())
 
   try {
     const request = await fetch(url, {
@@ -21,10 +21,10 @@ export async function postReceipt (img, itemId, dispatch) {
     const response = await request.json()
 
     if (request.status === 200) {
-      console.log('API CALL response', response)
       dispatch(addedReceipt(response))
+      dispatch(closeModal())
     }
   } catch (err) {
-    dispatch(addReceiptFail(err, itemId, img))
+    dispatch(addReceiptFail(err))
   }
 }

@@ -1,44 +1,47 @@
-import { RECEIPT, COMMENT, MODAL, POST_RECEIPT } from './actionTypes'
+import { GET_RECEIPTS, POST_COMMENT, MODAL, POST_RECEIPT, TOGGLE_SAVE_BUTTON } from './actionTypes'
+
+//   GET items
+export const getItemsReq = () => ({
+  type: GET_RECEIPTS.START_REQUEST
+})
 
 export const gotItems = (payload) => ({
-  type: RECEIPT.GOT_RECEIPTS_SUCESS,
+  type: GET_RECEIPTS.SUCESS,
   payload: payload,
   empty: false
 })
 
 export const gotNoItems = (payload) => ({
-  type: RECEIPT.GOT_NO_ITEMS,
+  type: GET_RECEIPTS.NO_ITEMS,
   payload: payload,
   empty: true
 })
 
-export const failGet = (payload) => ({
-  type: RECEIPT.GET_FAIL,
+export const getItemsFail = (payload) => ({
+  type: GET_RECEIPTS.FAIL,
   payload: payload,
   empty: true
 })
 
-export const startReq = () => ({
-  type: RECEIPT.GET_RECEIPTS_START_REQUEST
-})
-
+//    POST Comment
 export const addCommentReq = (id, text) => ({
-  type: COMMENT.POST_COMMENT_START_REQUEST,
+  type: POST_COMMENT.START_REQUEST,
   payload: { [id]: text }
 })
 
 export const addedComment = (payload) => ({
-  type: COMMENT.POSTED_COMMENT_SUCCESS,
+  type: POST_COMMENT.SUCCESS,
   payload: payload
 })
 
 export const addCommentFail = (error, itemId, text) => ({
-  type: COMMENT.POST_COMMENT_FAIL,
+  type: POST_COMMENT.FAIL,
   error: error,
   id: itemId,
   payload: text
 })
 
+//    Toggle Modal
 export const openModal = (id, hasReceipts) => ({
   type: MODAL.OPEN,
   id: id,
@@ -49,9 +52,10 @@ export const closeModal = () => ({
   type: MODAL.CLOSE
 })
 
-export const addReceiptReq = (id) => ({
+//   POST receipts
+export const addReceiptReq = () => ({
   type: POST_RECEIPT.START_REQUEST,
-  id: id
+  canSave: false
 })
 
 export const addedReceipt = (payload) => ({
@@ -59,9 +63,13 @@ export const addedReceipt = (payload) => ({
   payload: payload
 })
 
-export const addReceiptFail = (error, itemId, img) => ({
+export const addReceiptFail = (error) => ({
   type: POST_RECEIPT.FAIL,
   error: error,
-  id: itemId,
-  payload: img
+  canSave: true
+})
+
+export const toggleSaveBtn = (payload) => ({
+  type: TOGGLE_SAVE_BUTTON,
+  payload
 })

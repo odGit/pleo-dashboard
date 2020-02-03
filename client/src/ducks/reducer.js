@@ -1,35 +1,35 @@
-import { RECEIPT, COMMENT, MODAL, POST_RECEIPT } from './actionTypes'
+import { GET_RECEIPTS, POST_COMMENT, MODAL, POST_RECEIPT, TOGGLE_SAVE_BUTTON } from './actionTypes'
 
 export default function reducer (state, action) {
   console.log('REDUCER', action)
   switch (action.type) {
-    case RECEIPT.GOT_RECEIPTS_SUCESS: {
+    case GET_RECEIPTS.SUCESS: {
       return {
         ...state,
         data: action.payload.expenses,
         total: action.payload.total
       }
     }
-    case RECEIPT.GOT_NO_ITEMS: {
+    case GET_RECEIPTS.NO_ITEMS: {
       return {
         ...state,
         data: action.payload
       }
     }
     case POST_RECEIPT.FAIL:
-    case RECEIPT.GET_FAIL: {
+    case GET_RECEIPTS.FAIL: {
       return {
         ...state,
         errorMessage: action.payload.message
       }
     }
-    case RECEIPT.GET_RECEIPTS_START_REQUEST: {
+    case GET_RECEIPTS.START_REQUEST: {
       return {
         ...state,
         awaitingData: true
       }
     }
-    case COMMENT.POST_COMMENT_START_REQUEST: {
+    case POST_COMMENT.START_REQUEST: {
       // TODO: is postingComment used?
       return {
         ...state,
@@ -37,7 +37,7 @@ export default function reducer (state, action) {
       }
     }
     case POST_RECEIPT.SUCCESS:
-    case COMMENT.POSTED_COMMENT_SUCCESS: {
+    case POST_COMMENT.SUCCESS: {
       const index = state.data.findIndex(x => x.id === action.payload.id)
       const updatedData = [...state.data.slice(0, index), action.payload, ...state.data.slice(index + 1)]
       return {
@@ -49,11 +49,12 @@ export default function reducer (state, action) {
       return {
         ...state,
         showModal: true,
-        activeItem: action.id
+        activeItem: action.id,
+        canSave: false,
+        errorMessage: null
       }
     }
     case MODAL.CLOSE: {
-      // TODO: reset Inner modal state
       return {
         ...state,
         showModal: false,
@@ -66,6 +67,12 @@ export default function reducer (state, action) {
         ...state,
         canSave: false,
         activeItem: action.id
+      }
+    }
+    case TOGGLE_SAVE_BUTTON: {
+      return {
+        ...state,
+        canSave: action.payload
       }
     }
     default: {
