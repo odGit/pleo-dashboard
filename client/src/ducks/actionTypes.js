@@ -19,3 +19,11 @@ export const COMMENT = {
   POSTED_COMMENT_SUCCESS,
   POST_COMMENT_FAIL
 }
+
+const OPEN = 'OPEN_MODAL'
+const CLOSE = 'CLOSE_MODAL'
+
+export const MODAL = {
+  OPEN,
+  CLOSE
+}

@@ -1,4 +1,4 @@
-import { RECEIPT, COMMENT } from './actionTypes'
+import { RECEIPT, COMMENT, MODAL } from './actionTypes'
 
 export const gotItems = (payload) => ({
   type: RECEIPT.GOT_RECEIPTS_SUCESS,
@@ -37,4 +37,14 @@ export const addCommentFail = (error, itemId, text) => ({
   error: error,
   id: itemId,
   payload: text
+})
+
+export const openModal = (id, hasReceipts) => ({
+  type: MODAL.OPEN,
+  id,
+  hasReceipts
+})
+
+export const closeModal = () => ({
+  type: MODAL.CLOSE
 })

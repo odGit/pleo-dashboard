@@ -5,4 +5,6 @@ export const initialState = {
   offsetSize: 0,
   awaitingData: false,
   postingComment: undefined,
+  errorMessage: null,
+  showModal: false
 }

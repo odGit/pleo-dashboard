@@ -1,4 +1,4 @@
-import { RECEIPT, COMMENT } from './actionTypes'
+import { RECEIPT, COMMENT, MODAL } from './actionTypes'
 
 export default function reducer (state, action) {
   console.log('REDUCER', action)
@@ -40,6 +40,18 @@ export default function reducer (state, action) {
       return {
         ...state,
         data: updatedData
+      }
+    }
+    case MODAL.OPEN: {
+      return {
+        ...state,
+        showModal: true
+      }
+    }
+    case MODAL.CLOSE: {
+      return {
+        ...state,
+        showModal: false
       }
     }
     default: {
