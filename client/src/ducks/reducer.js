@@ -3,7 +3,7 @@ import { GET_RECEIPTS, POST_COMMENT, MODAL, POST_RECEIPT, TOGGLE_SAVE_BUTTON } f
 export default function reducer (state, action) {
   console.log('REDUCER', action)
   switch (action.type) {
-    case GET_RECEIPTS.SUCESS: {
+    case GET_RECEIPTS.SUCCESS: {
       return {
         ...state,
         data: action.payload.expenses,
@@ -46,19 +46,21 @@ export default function reducer (state, action) {
       }
     }
     case MODAL.OPEN: {
+      const expense = state.data.find(x => x.id === action.id)
       return {
         ...state,
         showModal: true,
-        activeItem: action.id,
+        activeId: action.id,
         canSave: false,
-        errorMessage: null
+        errorMessage: null,
+        activeData: expense
       }
     }
     case MODAL.CLOSE: {
       return {
         ...state,
         showModal: false,
-        activeItem: null,
+        activeId: null,
         canSave: false
       }
     }
@@ -66,7 +68,7 @@ export default function reducer (state, action) {
       return {
         ...state,
         canSave: false,
-        activeItem: action.id
+        activeId: action.id
       }
     }
     case TOGGLE_SAVE_BUTTON: {

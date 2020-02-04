@@ -21,25 +21,23 @@ const modalStyles = {
     zIndex: 3
   },
   inner: {
-    minWidth: '240px',
-    width: '60%',
-    height: '60%',
     background: 'white',
-    // h2: {
-    //   borderWidth: '1px',
-    //   borderStyle: 'solid',
-    //   borderColor: COLORS.DARKGREY,
-    //   padding: '1rem',
-    //   margin: '0'
-    // }
+    left: '50%',
+    maxWidth: '80%',
+    minWidth: '300px',
+    position: 'fixed',
+    top: '50%',
+    transform: 'translate(-50%, -50%)'
   },
   closeButton: {
+    borderColor: COLORS.GREYBLUE,
+    color: COLORS.GREYBLUE,
     float: 'right',
     margin: 0,
-    backgroundColor: 'white',
-    padding: 0,
-    borderWidth: 0,
-    color: COLORS.GREYBLUE
+    padding: '1% 2%',
+    position: 'relative',
+    right: '-1em',
+    top: '-1em'
   },
   errorMessage: {
     color: COLORS.ERROR,
@@ -58,10 +56,8 @@ function InnerModal ({ type, children }) {
           onClick={(e) => dispatch(closeModal())}
           icon={ICONS.CLOSE}
         />
-        <section className='modal-main'>
-          {errorMessage && <div style={modalStyles.errorMessage} className='errorMessage'>{errorMessage}</div>}
-          {children}
-        </section>
+        {errorMessage && <div style={modalStyles.errorMessage} className='errorMessage'>{errorMessage}</div>}
+        {children}
       </div>
     </div>
   )

@@ -6,21 +6,21 @@ export const getItemsReq = () => ({
 })
 
 export const gotItems = (payload) => ({
-  type: GET_RECEIPTS.SUCESS,
+  type: GET_RECEIPTS.SUCCESS,
   payload: payload,
-  empty: false
+  // empty: false
 })
 
 export const gotNoItems = (payload) => ({
   type: GET_RECEIPTS.NO_ITEMS,
   payload: payload,
-  empty: true
+  // empty: true
 })
 
 export const getItemsFail = (payload) => ({
   type: GET_RECEIPTS.FAIL,
   payload: payload,
-  empty: true
+  // empty: true
 })
 
 //    POST Comment

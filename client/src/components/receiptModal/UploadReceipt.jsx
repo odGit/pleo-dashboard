@@ -11,34 +11,45 @@ import { toggleSaveBtn } from '../../ducks/actions'
 
 const uploadStyles = {
   main: {
-    padding: '5%'
+    padding: '0 3%'
+  },
+  form: {
+    display: 'flex',
+    flexDirection: 'row'
   },
   fileInput: {
+    alignSelf: 'center',
     borderColor: COLORS.LIGHTGREY,
-    borderWidth: '1px',
+    borderRadius: '5px',
     borderStyle: 'solid',
-    padding: '10px',
-    margin: '15px',
-    cursor: 'pointer'
+    borderWidth: '1px',
+    cursor: 'pointer',
+    padding: '10px'
   },
   previewImg: {
-    textAlign: 'center',
-    margin: '5px 15px',
-    height: '200px',
-    width: '500px',
-    borderColor: COLORS.GREY,
-    borderWidth: '1px',
+    borderColor: COLORS.LIGHTGREY,
+    borderRadius: '5px',
     borderStyle: 'solid',
+    borderWidth: '1px',
+    display: 'flex',
+    justifyContent: 'center',
+    margin: '5% auto',
+    maxHeight: '210px',
+    maxWidth: '385px',
+    textAlign: 'center'
   },
   img: {
-    width: '100%',
-    height: '100%'
+    maxWidth: '355px',
+    maxHeight: '200px',
+    width: 'auto',
+    height: 'auto'
   },
   previewText: {
     width: '100%',
-    margin: '20px 0 0 0'
+    margin: '20px 0'
   },
   submitButton: {
+    alignSelf: 'center',
     padding: '1% 2%',
     margin: '0 0 0 10px',
     fontWeight: 700,
@@ -70,16 +81,12 @@ function UploadReceipt () {
 
   function handelSubmit (event) {
     event.preventDefault()
-    postReceipt(img, state.activeItem, dispatch)
+    postReceipt(img, state.activeId, dispatch)
   }
 
   return (
     <div className='receipt-image-uploader' style={uploadStyles.main}>
-      <div className='helper-text'>
-        You can upload your receipt as a file in JPEG or PNG format.
-      </div>
-      <form onSubmit={(e) => handelSubmit(e)}>
-        <label> File to upload: </label>
+      <form onSubmit={(e) => handelSubmit(e)} style={uploadStyles.form}>
         <input
           className='file-input'
           style={uploadStyles.fileInput}
@@ -98,7 +105,7 @@ function UploadReceipt () {
       </form>
       <div className='image-preview' style={uploadStyles.previewImg}>
         {imgPreviewUrl ? (
-          <img src={imgPreviewUrl} style={uploadStyles.img} />
+          <img alt={img.name} src={imgPreviewUrl} style={uploadStyles.img} />
         ) : (
           <div className='previewText' style={uploadStyles.previewText}>
             Please select a file

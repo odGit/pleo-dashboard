@@ -18,10 +18,12 @@ const componentStyles = {
   flexDirection: 'column',
   flexGrow: 1,
   justifyContnet: 'flex-start',
-  margin: '0 0.7em 0 0',
+  margin: '0 0.7em',
+  transition: 'transform .3s',
   ':hover': {
+    transform: 'scale(1.09)',
     backgroundColor: COLORS.TRANSPARENT,
-    cursor: 'pointer',
+    cursor: 'pointer'
   },
   ':disabled': {
     backgroundColor: COLORS.TRANSPARENT,
