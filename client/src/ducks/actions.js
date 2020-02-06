@@ -1,4 +1,10 @@
-import { GET_RECEIPTS, POST_COMMENT, MODAL, POST_RECEIPT, TOGGLE_SAVE_BUTTON } from './actionTypes'
+import {
+  GET_RECEIPTS,
+  POST_COMMENT,
+  MODAL, POST_RECEIPT,
+  TOGGLE_SAVE_BUTTON,
+  SORT_DATA
+} from './actionTypes'
 
 //   GET items
 export const getItemsReq = () => ({
@@ -7,19 +13,19 @@ export const getItemsReq = () => ({
 
 export const gotItems = (payload) => ({
   type: GET_RECEIPTS.SUCCESS,
-  payload: payload,
+  payload: payload
   // empty: false
 })
 
 export const gotNoItems = (payload) => ({
   type: GET_RECEIPTS.NO_ITEMS,
-  payload: payload,
+  payload: payload
   // empty: true
 })
 
 export const getItemsFail = (payload) => ({
   type: GET_RECEIPTS.FAIL,
-  payload: payload,
+  payload: payload
   // empty: true
 })
 
@@ -71,5 +77,10 @@ export const addReceiptFail = (error) => ({
 
 export const toggleSaveBtn = (payload) => ({
   type: TOGGLE_SAVE_BUTTON,
+  payload
+})
+
+export const applySorting = (payload) => ({
+  type: SORT_DATA,
   payload
 })

@@ -1,12 +1,22 @@
-import { GET_RECEIPTS, POST_COMMENT, MODAL, POST_RECEIPT, TOGGLE_SAVE_BUTTON } from './actionTypes'
+import {
+  GET_RECEIPTS,
+  POST_COMMENT,
+  MODAL,
+  POST_RECEIPT,
+  TOGGLE_SAVE_BUTTON,
+  SORT_DATA
+} from './actionTypes'
+import { SORTING_OPTIONS, dynamicSort } from '../utils/sortingFn'
 
 export default function reducer (state, action) {
   console.log('REDUCER', action)
   switch (action.type) {
     case GET_RECEIPTS.SUCCESS: {
+      const newData = action.payload.expenses
       return {
         ...state,
-        data: action.payload.expenses,
+        // TODO: add sorting Action and TYPE of ACTION and REDUCER
+        data: newData.sort(dynamicSort(state.sortBy)),
         total: action.payload.total
       }
     }
@@ -75,6 +85,14 @@ export default function reducer (state, action) {
       return {
         ...state,
         canSave: action.payload
+      }
+    }
+    case SORT_DATA: {
+      const newArray = state.data.slice()
+      return {
+        ...state,
+        sortBy: action.payload,
+        data: newArray.sort(dynamicSort(action.payload))
       }
     }
     default: {

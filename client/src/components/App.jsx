@@ -5,6 +5,7 @@ import { useAppContext } from '../Context'
 import Collection from './Collection'
 import { useGetItems } from '../utils/useGetItems'
 import ReceiptModal from './ReceiptModal'
+import ControlsBar from './ControlsBar'
 
 function App () {
   const [state, dispatch] = useAppContext()
@@ -14,6 +15,7 @@ function App () {
   return (
     <StyleRoot>
       <div className='App'>
+        <ControlsBar />
         {showModal && <ReceiptModal />}
         {data && <Collection expenses={data} />}
       </div>
