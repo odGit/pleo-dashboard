@@ -17,6 +17,7 @@ const commentStyles = {
     whiteSpace: 'nowrap',
     overflow: 'hidden',
     textOverflow: 'ellipsis',
+    borderStyle: 'solid',
     ':focus': {
       borderColor: COLORS.GRASS,
       outline: 'thin dotted',

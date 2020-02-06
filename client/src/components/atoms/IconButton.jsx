@@ -9,7 +9,7 @@ import { COLORS } from '../../enums/colors'
 
 const componentStyles = {
   backgroundColor: '#FFF',
-  borderColor: COLORS.GRASS,
+  borderColor: COLORS.GREYBLUE,
   borderRadius: '5px',
   borderStyle: 'solid',
   borderWidth: '1px',
@@ -22,7 +22,9 @@ const componentStyles = {
   transition: 'transform .3s',
   ':hover': {
     transform: 'scale(1.09)',
-    backgroundColor: COLORS.TRANSPARENT,
+    color: 'white',
+    borderWidth: '2px',
+    backgroundColor: COLORS.GREYBLUE,
     cursor: 'pointer'
   },
   ':disabled': {

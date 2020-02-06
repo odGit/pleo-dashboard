@@ -30,8 +30,6 @@ const modalStyles = {
     transform: 'translate(-50%, -50%)'
   },
   closeButton: {
-    borderColor: COLORS.GREYBLUE,
-    color: COLORS.GREYBLUE,
     float: 'right',
     margin: 0,
     padding: '1% 2%',

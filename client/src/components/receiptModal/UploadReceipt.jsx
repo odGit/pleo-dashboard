@@ -19,7 +19,7 @@ const uploadStyles = {
   },
   fileInput: {
     alignSelf: 'center',
-    borderColor: COLORS.LIGHTGREY,
+    borderColor: COLORS.GREYBLUE,
     borderRadius: '5px',
     borderStyle: 'solid',
     borderWidth: '1px',
