@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import Radium from 'radium'
 
 const itemStyles = {
@@ -28,6 +29,15 @@ function Item ({ name, value }) {
       <span className='item-value' style={itemStyles.right}>{value}</span>
     </div>
   )
+}
+
+Item.propTypes = {
+  name: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+}
+Item.defaultProps = {
+  name: 'NAME_LABEL',
+  value: 'VALUE_LABEL'
 }
 
 export default Radium(Item)

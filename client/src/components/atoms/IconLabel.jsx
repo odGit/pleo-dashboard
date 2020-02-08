@@ -14,16 +14,15 @@ const IconLabelStyles = {
   textBlock: {
     paddingLeft: '0.1em',
     fontSize: '1em',
-    textAlign: 'center',
-    flex: 1
+    textAlign: 'center'
   }
 }
 
 function IconLabel ({ classes, icon, label, styles }) {
   return (
-    <div className={classes} style={styles || IconLabelStyles.base}>
+    <div className={classes} style={styles ? { ...styles, ...IconLabelStyles.base } : IconLabelStyles.base}>
       <Icon icon={icon} noStyles size={ICONSIZES.LABEL} />
-      <span className={`${classes}-icon`} style={styles || IconLabelStyles.textBlock}>
+      <span className={`${classes}-icon`} style={IconLabelStyles.textBlock}>
         {label}
       </span>
     </div>

@@ -5,8 +5,7 @@ import Radium from 'radium'
 const labelStyles = {
   fontSize: '1em',
   lineHeight: '2em',
-  textAlign: 'center',
-  flex: 1
+  textAlign: 'center'
 }
 
 function Label ({ classes, label, styles }) {
