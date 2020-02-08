@@ -3,7 +3,9 @@ import {
   POST_COMMENT,
   MODAL, POST_RECEIPT,
   TOGGLE_SAVE_BUTTON,
-  SORT_DATA
+  SORT_DATA,
+  SELECT_CARDS,
+  CHANGE_PAGE
 } from './actionTypes'
 
 //   GET items
@@ -82,5 +84,16 @@ export const toggleSaveBtn = (payload) => ({
 
 export const applySorting = (payload) => ({
   type: SORT_DATA,
+  payload
+})
+
+export const applySelect = (payload, checked) => ({
+  type: SELECT_CARDS,
+  payload,
+  checked
+})
+
+export const changePage = (payload) => ({
+  type: CHANGE_PAGE,
   payload
 })

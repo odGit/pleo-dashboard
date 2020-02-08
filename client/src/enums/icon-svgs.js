@@ -12,4 +12,6 @@ export const ICONS = {
   SUCESS: '<path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3" />',
   CLOSE: '<line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />',
   CLOSE_SQUARE: '<rect x="3" y="3" width="18" height="18" rx="2" ry="2" /><line x1="9" y1="9" x2="15" y2="15" /><line x1="15" y1="9" x2="9" y2="15" />',
+  BACK: '<polyline points="15 18 9 12 15 6"></polyline>',
+  FORWARD: '<polyline points="9 18 15 12 9 6">'
 }

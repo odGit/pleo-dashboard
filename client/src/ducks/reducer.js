@@ -4,9 +4,11 @@ import {
   MODAL,
   POST_RECEIPT,
   TOGGLE_SAVE_BUTTON,
-  SORT_DATA
+  SORT_DATA,
+  SELECT_CARDS,
+  CHANGE_PAGE
 } from './actionTypes'
-import { SORTING_OPTIONS, dynamicSort } from '../utils/sortingFn'
+import { dynamicSort } from '../utils/sortingFn'
 
 export default function reducer (state, action) {
   console.log('REDUCER', action)
@@ -15,7 +17,6 @@ export default function reducer (state, action) {
       const newData = action.payload.expenses
       return {
         ...state,
-        // TODO: add sorting Action and TYPE of ACTION and REDUCER
         data: newData.sort(dynamicSort(state.sortBy)),
         total: action.payload.total
       }
@@ -93,6 +94,24 @@ export default function reducer (state, action) {
         ...state,
         sortBy: action.payload,
         data: newArray.sort(dynamicSort(action.payload))
+      }
+    }
+    case SELECT_CARDS: {
+      let newSelect = state.select.slice()
+      if (action.checked) {
+        newSelect.push(action.payload)
+      } else {
+        newSelect = newSelect.filter(item => item !== action.payload)
+      }
+      return {
+        ...state,
+        select: newSelect
+      }
+    }
+    case CHANGE_PAGE: {
+      return {
+        ...state,
+        offsetSize: state.offsetSize + (action.payload * state.limit)
       }
     }
     default: {

@@ -10,19 +10,43 @@ import Comment from './card/Comment'
 import ReceiptPreview from './card/ReceiptPreview'
 
 import { COLORS } from '../enums/colors'
+import { useAppContext } from '../Context'
 
 const cardStyles = {
-  width: '210px',
-  borderStyle: 'solid',
-  borderWidth: '1px',
-  borderColor: COLORS.GRASS,
-  padding: '10px'
+  item: {
+    width: '210px',
+    borderStyle: 'solid',
+    borderWidth: '1px',
+    borderColor: COLORS.GRASS,
+    padding: '10px'
+  },
+  select: {
+    borderWidth: '3px',
+    margin: '-2px'
+  }
 }
 
 function Card ({ expense }) {
   const { id, amount, merchant, user, date, comment, receipts } = expense
+  const [state] = useAppContext()
+  const { select } = state
+
+  function shouldSelect () {
+    if (select.length === 1) {
+      return expense[select[0]].length !== 0
+    } else if (select.length === 2) {
+      return expense[select[0]].length !== 0 && expense[select[1]].length !== 0
+    } else {
+      return false
+    }
+  }
+
   return (
-    <div key={id} className='expense-card' style={cardStyles}>
+    <div
+      key={id}
+      className='expense-card'
+      style={shouldSelect() ? { ...cardStyles.item, ...cardStyles.select } : cardStyles.item}
+    >
       <Merchant name={merchant} />
       <User name={user} />
       <TimeStamp date={date} />

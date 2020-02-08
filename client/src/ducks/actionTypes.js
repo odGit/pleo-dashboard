@@ -25,3 +25,5 @@ export const POST_RECEIPT = {
 export const TOGGLE_SAVE_BUTTON = 'TOGGLE_SAVE_BUTTON'
 
 export const SORT_DATA = 'SORT_DATA'
+export const SELECT_CARDS = 'SELECT_CARDS'
+export const CHANGE_PAGE = 'CHANGE_PAGE'

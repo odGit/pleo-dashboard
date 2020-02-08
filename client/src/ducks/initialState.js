@@ -12,5 +12,6 @@ export const initialState = {
   canSave: false,
   total: 0,
   activeData: null,
-  sortBy: SORTING_OPTIONS.BY_DATE
+  sortBy: SORTING_OPTIONS.BY_DATE,
+  select: []
 }
