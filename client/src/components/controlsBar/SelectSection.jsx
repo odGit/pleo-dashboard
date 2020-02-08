@@ -14,7 +14,7 @@ function SelectSection () {
       classes='controls-select-filter'
       defaultValues={state.select}
       handleChange={(event) => dispatch(applySelect(event.target.value, event.target.checked))}
-      labelName='Select'
+      labelName='Filter'
       options={SELECT_OPTIONS}
       type='checkbox'
     />
