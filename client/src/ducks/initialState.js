@@ -2,7 +2,7 @@ import { SORTING_OPTIONS } from '../utils/sortingFn'
 
 export const initialState = {
   data: undefined,
-  limit: 26, // TODO: set later to 5 for mobile
+  limit: 20,
   offsetSize: 0,
   awaitingData: false,
   postingComment: undefined,

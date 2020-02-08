@@ -11,7 +11,6 @@ import {
 import { dynamicSort } from '../utils/sortingFn'
 
 export default function reducer (state, action) {
-  console.log('REDUCER', action)
   switch (action.type) {
     case GET_RECEIPTS.SUCCESS: {
       const newData = action.payload.expenses
