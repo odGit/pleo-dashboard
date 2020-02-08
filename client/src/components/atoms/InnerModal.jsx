@@ -6,10 +6,11 @@ import { useAppContext } from '../../Context'
 import { COLORS } from '../../enums/colors'
 import { closeModal } from '../../ducks/actions'
 import { ICONS } from '../../enums/icon-svgs'
+import { OVERLAYS } from '../../enums/overlay-index'
 
 const modalStyles = {
   modal: {
-    position: 'absolute',
+    position: 'fixed',
     top: 0,
     left: 0,
     width: '100%',
@@ -18,7 +19,7 @@ const modalStyles = {
     justifyContent: 'center',
     alignItems: 'center',
     display: 'flex',
-    zIndex: 3
+    zIndex: OVERLAYS.MODAL
   },
   inner: {
     background: 'white',
@@ -35,7 +36,7 @@ const modalStyles = {
     padding: '1% 2%',
     position: 'relative',
     right: '-1em',
-    top: '-1em'
+    top: '-1em',
   },
   errorMessage: {
     color: COLORS.ERROR,

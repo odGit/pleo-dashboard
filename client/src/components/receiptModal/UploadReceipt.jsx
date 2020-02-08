@@ -24,7 +24,8 @@ const uploadStyles = {
     borderStyle: 'solid',
     borderWidth: '1px',
     cursor: 'pointer',
-    padding: '10px'
+    padding: '3%',
+    width: '80%'
   },
   previewImg: {
     borderColor: COLORS.LIGHTGREY,
@@ -49,11 +50,7 @@ const uploadStyles = {
     margin: '20px 0'
   },
   submitButton: {
-    alignSelf: 'center',
-    padding: '1% 2%',
-    margin: '0 0 0 10px',
-    fontWeight: 700,
-    fontSize: '10pt'
+    margin: '0 0 0 5%'
   }
 }
 
@@ -92,6 +89,7 @@ function UploadReceipt () {
         />
         <IconButton
           disabled={!state.canSave}
+          classes={'receiplt-upload-submit'}
           icon={ICONS.SAVE}
           type='submit'
           onClick={(e) => handelSubmit(e)}

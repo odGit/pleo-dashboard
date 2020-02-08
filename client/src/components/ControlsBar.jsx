@@ -5,6 +5,7 @@ import SortingSection from './controlsBar/SortingSection'
 import SelectSection from './controlsBar/SelectSection'
 import PageSection from './controlsBar/PageSection'
 import { COLORS } from '../enums/colors'
+import { OVERLAYS } from '../enums/overlay-index'
 
 const barStyles = {
   display: 'grid',
@@ -16,8 +17,10 @@ const barStyles = {
   position: 'sticky',
   top: '0px',
   margin: ' 0 0 10px 0',
-  zIndex: 5,
+  zIndex: OVERLAYS.CONTROLS,
   backgroundColor: COLORS.LIGHTGREY,
+  borderRadius: '5px',
+
   /* Tablet Styles */
   '@media only screen and (min-width: 780px) and (max-width: 896px)': {
     gridTemplateColumns: '290px 270px 200px'

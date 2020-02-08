@@ -18,6 +18,7 @@ const commentStyles = {
     overflow: 'hidden',
     textOverflow: 'ellipsis',
     borderStyle: 'solid',
+    borderColor: COLORS.LIGHTGREY,
     ':focus': {
       borderColor: COLORS.GRASS,
       outline: 'thin dotted',
@@ -49,10 +50,10 @@ function Comment ({ comment, itemId }) {
   usePostComment(isBlurry, localComment, comment, itemId)
 
   return (
-    <div>
+    <div className='card-comment'>
       <input
         maxLength='30'
-        onBlur={handleBlur}
+        onBlur={(e) => handleBlur(e)}
         onChange={event => { addComment(event.target.value) }}
         onFocus={event => setBlurry(false)}
         placeholder='add a comment'

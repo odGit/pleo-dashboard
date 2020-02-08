@@ -12,8 +12,7 @@ const inputsStyles = {
   label: {
     fontSize: '1.2em',
     textAlign: 'center',
-    margin: '0 10px 0 0',
-    flex: 'initial'
+    margin: '0 2%'
   }
 }
 

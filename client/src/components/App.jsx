@@ -7,6 +7,10 @@ import { useGetItems } from '../utils/useGetItems'
 import ReceiptModal from './ReceiptModal'
 import ControlsBar from './ControlsBar'
 
+const componentStyles = {
+  minWidth: '285px'
+}
+
 function App () {
   const [state, dispatch] = useAppContext()
   const { limit, offsetSize, data, showModal } = state
@@ -14,7 +18,7 @@ function App () {
 
   return (
     <StyleRoot>
-      <div className='App'>
+      <div className='App' style={componentStyles}>
         <ControlsBar />
         {showModal && <ReceiptModal />}
         {data && <Collection expenses={data} />}

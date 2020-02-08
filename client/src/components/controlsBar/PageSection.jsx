@@ -10,8 +10,8 @@ import { changePage } from '../../ducks/actions'
 const pageStyles = {
   item: {
     display: 'inline-flex',
-    justifyContent: 'end',
-    alignItems: 'flex-start',
+    justifyContent: 'flex-end',
+    alignSelf: 'center',
     '@media only screen and (max-width: 779px) and (min-width: 581px)': {
       gridColumn: '2 / 3'
     }
