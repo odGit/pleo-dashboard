@@ -6,6 +6,7 @@ import IconButton from '../atoms/IconButton'
 import { useAppContext } from '../../Context'
 import { ICONS } from '../../enums/icon-svgs'
 import { openModal } from '../../ducks/actions'
+import { COLORS } from '../../enums/colors'
 
 const previewStyles = {
   flexDirection: 'row',
@@ -13,7 +14,12 @@ const previewStyles = {
   height: '35px',
   justifyContent: 'center',
   margin: '2% 0 0 0',
-  width: '100px'
+  width: '100px',
+  ':disabled': {
+    backgroundColor: COLORS.TRANSPARENT,
+    borderColor: '#FFF',
+    color: COLORS.GRASS
+  }
 }
 
 function ReceiptPreview ({ id, receipts }) {

@@ -53,12 +53,7 @@ const uploadStyles = {
     padding: '1% 2%',
     margin: '0 0 0 10px',
     fontWeight: 700,
-    fontSize: '10pt',
-    ':disabled': {
-      backgroundColor: COLORS.TRANSPARENT,
-      borderColor: '#FFF',
-      color: COLORS.LIGHTGREY
-    }
+    fontSize: '10pt'
   }
 }
 

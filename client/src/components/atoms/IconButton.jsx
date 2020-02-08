@@ -15,9 +15,6 @@ const componentStyles = {
   borderWidth: '1px',
   color: COLORS.ORANGE,
   dispaly: 'flex',
-  flexDirection: 'column',
-  flexGrow: 1,
-  justifyContnet: 'flex-start',
   margin: '0 0.7em',
   transition: 'transform .3s',
   ':hover': {
@@ -30,7 +27,7 @@ const componentStyles = {
   ':disabled': {
     backgroundColor: COLORS.TRANSPARENT,
     borderColor: '#FFF',
-    color: COLORS.GRASS
+    color: COLORS.GREY
   }
 }
 
