@@ -17,14 +17,13 @@
     ]
   },
   "scripts": {
-    "clean:all": "rm -rf ./node_modules ./pleo_code/api/node_modules ./client/node_modules",
-    "init": "cd ./pleo-code/api && npm i && cd ../../client && yarn && cd ../ && yarn && yarn start",
+    "clean:all": "rm -rf ./node_modules ./pleo-code/api/node_modules/ ./client/node_modules",
+    "init": "cd ./pleo-code/api && npm i && cd ../../client && yarn && cd ../ && yarn",
     "lint": "./node_modules/.bin/standard",
     "lint-fix": "./node_modules/.bin/standard --fix",
     "start": "concurrently --kill-others-on-fail \"npm run start:api\" \"npm run start:client\"",
     "start:api": "cd ./pleo-code/api && npm start",
-    "start:client": "cd ./client && yarn start",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start:client": "cd ./client && yarn start"
   },
   "devDependencies": {
     "concurrently": "^5.1.0",
