@@ -16,7 +16,11 @@ const merchantStyles = {
   width: '210px'
 }
 
-function Merchant ({ name }) {
+interface Props {
+  name: string
+}
+
+function Merchant ({ name }: Props): JSX.Element {
   return (
     <Label
       classes='card-merchant'

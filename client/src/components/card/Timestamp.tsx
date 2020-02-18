@@ -5,8 +5,11 @@ import IconLabel from '../atoms/IconLabel'
 import { DATEOPTIIONS } from '../../enums/date-options'
 import { ICONS } from '../../enums/icon-svgs'
 
-function TimeStamp ({ date }) {
-  const dateFormated = new Date(date).toLocaleDateString('en-gb', DATEOPTIIONS)
+interface Props {
+  date: string
+}
+function TimeStamp ({ date }: Props) : JSX.Element {
+  const dateFormated: string = new Date(date).toLocaleDateString('en-gb', DATEOPTIIONS)
   const [ddMyyyy, hhMM] = dateFormated.split(',')
 
   return (
@@ -29,7 +32,7 @@ TimeStamp.propTypes = {
   date: PropTypes.string.isRequired
 }
 
-TimeStamp.dafaultProps = {
+TimeStamp.defaultProps = {
   date: '1900-01-01T00:00:00.000Z'
 }
 

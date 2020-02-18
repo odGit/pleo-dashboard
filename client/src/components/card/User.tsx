@@ -8,7 +8,15 @@ import { ICONS } from '../../enums/icon-svgs'
 const userStyles = {
   width: '80%'
 }
-function User ({ name }) {
+
+interface Props {
+  name: {
+    first: string,
+    last: string,
+    email: string
+  }
+}
+function User ({ name }: Props): JSX.Element {
   return (
     <IconLabel
       classes='card-user-name'

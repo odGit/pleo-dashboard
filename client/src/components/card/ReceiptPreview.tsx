@@ -21,10 +21,14 @@ const previewStyles = {
     color: COLORS.GRASS
   }
 }
+interface Props {
+  id: number;
+  receipts: Array<string>
+}
 
-function ReceiptPreview ({ id, receipts }) {
+function ReceiptPreview ({ id, receipts }: Props): JSX.Element {
   const [, dispatch] = useAppContext()
-  const noReceipts = (receipts.length === 0)
+  const noReceipts: boolean = (receipts.length === 0)
 
   return (
     <IconButton

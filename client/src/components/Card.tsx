@@ -25,8 +25,27 @@ const cardStyles = {
     margin: '-2px'
   }
 }
+interface Props {
+  expense: {
+    id: number,
+    amount: {
+      value: number,
+      currency: string
+    },
+    date: string, // TODO: Date type
+    merchant: string,
+    receipts: Array<string>,
+    comment: string,
+    category: string,
+    user: {
+      first: string,
+      last: string,
+      email: string
+    }
+  }
+}
 
-function Card ({ expense }) {
+function Card ({ expense }: Props): JSX.Element {
   const { id, amount, merchant, user, date, comment, receipts } = expense
   const [state] = useAppContext()
   const { select } = state
