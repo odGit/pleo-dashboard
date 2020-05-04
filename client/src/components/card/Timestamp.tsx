@@ -10,7 +10,7 @@ interface Props {
 }
 function TimeStamp ({ date }: Props) : JSX.Element {
   const dateFormated: string = new Date(date).toLocaleDateString('en-gb', DATEOPTIIONS)
-  const [ddMyyyy, hhMM] = dateFormated.split(',')
+  const [ddMyyyy, hhMM]: Array<string> = dateFormated.split(',')
 
   return (
     <div className='purchase-date'>
